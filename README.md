@@ -6,4 +6,6 @@ Repository containing code and instructions for Visual SLAM failures assessment 
 - Add links or submodules to LeGO-LOAM, our DROID-SLAM fork, and our ORB-SLAM3 fork. 
 - Add instructions for running each
 - Add links to datasets
+- Add links for rosbag to dataset format conversion
+- Add links for plotting scripts
 - Add link to video
