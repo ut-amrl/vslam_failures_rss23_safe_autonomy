@@ -68,11 +68,14 @@ https://github.com/ut-amrl/DROID-SLAM/tree/addStereo
  - Sometimes the Sophus Library gives error saying got nan. Ignoring those error messages for this competition for now
  - Sometimes g2o reports 0 vertices to optimize. Ignoring those error messages as well
 
-
+# LeGO-LOAM (for reference trajectory generation)
+## Set up
+- Clone the following repository and check out to the linked branch: https://github.com/ut-amrl/LeGO-LOAM-1/tree/writeResultsWithTimestampsToFileVelodyne
+- Follow the set up instructions
+- Follow the instructions to run, replacing step 1 with `roslaunch lego_loam run.launch results_dir:=<directory for results>`
+  - The results directory must exist and contain the subfolders `poses` and `point_clouds` before LeGO-LOAM is run
 
 # TODO
-- Add links or submodules to LeGO-LOAM
-- Add instructions for running each
 - Add links to datasets
 - Add links for rosbag to dataset format conversion
 - Add links for plotting scripts
