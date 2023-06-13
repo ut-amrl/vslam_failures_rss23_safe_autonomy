@@ -38,10 +38,40 @@ https://github.com/ut-amrl/DROID-SLAM/tree/addStereo
     -  The stride controls how many images are used. The default is 3, which means that every 3rd image will be used in trajectory evaluation. If the number of images is greater than the buffer size, the stride parameter must be set to scale the number of images used. 
 
 
+# ORB-SLAM3 
+## To set up ORB-SLAM3:
+- Clone the AMRL fork of the orb_slam3 repo: 
+  - https://github.com/ut-amrl/ORB_SLAM3
+  - Checkout branch “rss2023”
+- Follow the installation instructions in the README
+  - Alternatively, you can also use this docker image: tiejean/rss2023competition:orb_slam3
+- To run this docker with x display, you can use this repo. To use this repo directly, similar to how this directory is set up, you can create dummy Makefile and Dockerfile, and copy-paste the compose.yaml and modified the specified docker image you use.
+- Run bash build.sh && bash build_ros.sh
+- Known compilation errors: I’ve noticed that if you have conflicting opencv versions on your machine, you might encounter memory issue when rectifying images. On rss2023 branch, I asked cmake to find the exact version of opencv. If you don’t have the same version of opencv installed and you don’t want to use the docker image, you can use this script to preprocess all the input images and set the do_rectify flag to be false when running ORB_SLAM3
+
+## To run ORB-SLAM with stereo KITTI data:
+- cd Examples/Stereo
+- Usage: `./stereo_kitti path_to_vocabulary path_to_settings path_to_sequence <do_rectify> <start_frame_id> <end_frame_id>`
+  - For example, to run the a whole bag:
+    - On raw data: `./stereo_kitti ../../Vocabulary/ORBvoc.txt IVSLAM.yaml <path_to_raw_KITTI_images> true`
+    - On rectified data: `./stereo_kitti ../../Vocabulary/ORBvoc.txt IVSLAM.yaml <path_to_rectified_KITTI_images> false`
+    - To replicate failure on some segment: `./stereo_kitti ../../Vocabulary/ORBvoc.txt IVSLAM.yaml <path_to_raw_KITTI_images> true`
+  - path_to_raw_KITTI_images expect a directory that contains “image_0”, “image_1” and “times.txt”
+  - Currently, the trajectories are saved to Examples/Stereo/CameraTrajectory.txt. (I should’ve added a flag to specified the output trajectory path but I haven’t done so…) So you may need to manually move/rename the output trajectory file if you think you want to visualize those trajectories against groundtruth later
+
+## To run ORB-SLAM with monocular data:
+ - cd Examples/Monocular
+ - Usage: `./mono_kitti path_to_vocabulary path_to_settings path_to_sequence`
+- path_to_sequence expect a directory that contains “image_0”, “image_1” and “times.txt”
+
+## Known issues with ORB_SLAM3:
+ - Sometimes the Sophus Library gives error saying got nan. Ignoring those error messages for this competition for now
+ - Sometimes g2o reports 0 vertices to optimize. Ignoring those error messages as well
+
 
 
 # TODO
-- Add links or submodules to LeGO-LOAM, our DROID-SLAM fork, and our ORB-SLAM3 fork. 
+- Add links or submodules to LeGO-LOAM
 - Add instructions for running each
 - Add links to datasets
 - Add links for rosbag to dataset format conversion
