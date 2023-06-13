@@ -4,3 +4,6 @@
 [submodule "third_party/ORB_SLAM3"]
 	path = third_party/ORB_SLAM3
 	url = git@github.com:ut-amrl/ORB_SLAM3.git
+[submodule "third_party/LeGO-LOAM-1"]
+	path = third_party/LeGO-LOAM-1
+	url = git@github.com:ut-amrl/LeGO-LOAM-1.git
