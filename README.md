@@ -4,7 +4,7 @@ Repository containing code and instructions for Visual SLAM failures assessment 
 # Links
 - The failure analysis video can be found [here](https://www.youtube.com/watch?v=TVz5XrXm8Wo).
 - The rosbags from SCAND that we used can be obtained from [here](https://www.cs.utexas.edu/~xiao/SCAND/SCAND.html). The specific names of the bags that we used have been provided in the SCAND_bags.txt file.
-- The rosbags from IV-SLAM can be obtained from [here](https://drive.google.com/drive/folders/1S1-A3wXpdJCQVFmZmJFfIHJxKWl2OfuP?usp=drive_link). The link also contains the failure analysis results for both the IV-SLAM and SCAND bags.
+- The rosbags from IV-SLAM can be obtained from [here](https://drive.google.com/drive/folders/1S1-A3wXpdJCQVFmZmJFfIHJxKWl2OfuP?usp=sharing). The link also contains the failure analysis results for both the IV-SLAM and SCAND bags.
 
 # Basic Setup
 - Clone this repository with the `--recursive` flag to pull all submodules too
@@ -108,11 +108,3 @@ cd third_party/DROID-SLAM
 - Follow the set up instructions [here](https://github.com/ut-amrl/LeGO-LOAM-1/tree/writeResultsWithTimestampsToFileVelodyne).
 - Follow the instructions to run, replacing step 1 with `roslaunch lego_loam run.launch results_dir:=<directory for results>`
   - The results directory must exist and contain the subfolders `poses` and `point_clouds` before LeGO-LOAM is run
-
-# TODO
-- ~~Add links to datasets~~
-- ~~Add links for rosbag to dataset format conversion~~
-- ~~Add links for plotting scripts~~
-- ~~Add link to video~~
-- Change dataset link to one with public access
-- Upload IV-SLAM bags to [drive](https://drive.google.com/drive/folders/1119aEdqI60oiO5oI7LpZ6aDjFGv-LiKa?usp=drive_link)
